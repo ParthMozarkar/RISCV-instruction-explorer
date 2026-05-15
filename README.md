@@ -241,3 +241,4 @@ Both DOT (GraphViz) and Mermaid are generated because:
 ## License
 
 Apache 2.0 — same as the upstream RISC-V Opcodes repository.
+
