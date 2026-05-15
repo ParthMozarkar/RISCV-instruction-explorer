@@ -1,0 +1,31 @@
+graph ExtensionSharingGraph {
+    rankdir=LR;
+    node [shape=box fontname="monospace"];
+    "rv32_zknd" [label="rv32_zknd\n(2 instrs)"];
+    "rv32_zkne" [label="rv32_zkne\n(2 instrs)"];
+    "rv32_zknh" [label="rv32_zknh\n(4 instrs)"];
+    "rv64_a" [label="rv64_a\n(7 instrs)"];
+    "rv64_i" [label="rv64_i\n(12 instrs)"];
+    "rv64_m" [label="rv64_m\n(5 instrs)"];
+    "rv64_zba" [label="rv64_zba\n(5 instrs)"];
+    "rv64_zbb" [label="rv64_zbb\n(8 instrs)"];
+    "rv64_zknd" [label="rv64_zknd\n(5 instrs)"];
+    "rv64_zkne" [label="rv64_zkne\n(4 instrs)"];
+    "rv_a" [label="rv_a\n(11 instrs)"];
+    "rv_d" [label="rv_d\n(22 instrs)"];
+    "rv_f" [label="rv_f\n(26 instrs)"];
+    "rv_i" [label="rv_i\n(40 instrs)"];
+    "rv_m" [label="rv_m\n(8 instrs)"];
+    "rv_v" [label="rv_v\n(10 instrs)"];
+    "rv_zba" [label="rv_zba\n(3 instrs)"];
+    "rv_zbb" [label="rv_zbb\n(18 instrs)"];
+    "rv_zbc" [label="rv_zbc\n(3 instrs)"];
+    "rv_zbs" [label="rv_zbs\n(8 instrs)"];
+    "rv_zicsr" [label="rv_zicsr\n(6 instrs)"];
+    "rv_zifencei" [label="rv_zifencei\n(1 instrs)"];
+    "rv_zknh" [label="rv_zknh\n(4 instrs)"];
+    "rv_zksed" [label="rv_zksed\n(2 instrs)"];
+    "rv_zksh" [label="rv_zksh\n(2 instrs)"];
+    "rv64_zbb" -- "rv_zbb" [label="REV8\nZEXT.H" fontsize=9];
+    "rv64_zknd" -- "rv64_zkne" [label="AES64KS1I\nAES64KS2" fontsize=9];
+}

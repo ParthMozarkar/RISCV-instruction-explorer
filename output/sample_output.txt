@@ -1,0 +1,173 @@
+╔══════════════════════════════════════════════════════════════════╗
+║         RISC-V Instruction Set Explorer  ·  Mentorship 2025      ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Tier 1 — Instruction Set Parsing
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+===================================================
+  RISC-V Extension Summary
+===================================================
++-------------+----------------+------------------+
+| Extension   | # Instructions | Example Mnemonic |
++=============+================+==================+
+| rv_i        |             40 | ADD              |
+| rv_f        |             26 | FADD.S           |
+| rv_d        |             22 | FADD.D           |
+| rv_zbb      |             18 | ANDN             |
+| rv64_i      |             12 | ADDIW            |
+| rv_a        |             11 | AMOADD.W         |
+| rv_v        |             10 | VADD.VI          |
+| rv_m        |              8 | DIV              |
+| rv64_zbb    |              8 | CLZW             |
+| rv_zbs      |              8 | BCLR             |
+| rv64_a      |              7 | AMOADD.D         |
+| rv_zicsr    |              6 | CSRRC            |
+| rv64_m      |              5 | DIVUW            |
+| rv64_zba    |              5 | ADD.UW           |
+| rv64_zknd   |              5 | AES64DS          |
+| rv_zknh     |              4 | SHA256SIG0       |
+| rv32_zknh   |              4 | SHA512SIG0       |
+| rv64_zkne   |              4 | AES64ES          |
+| rv_zba      |              3 | SH1ADD           |
+| rv_zbc      |              3 | CLMUL            |
+| rv32_zknd   |              2 | AES32DSI         |
+| rv32_zkne   |              2 | AES32ESI         |
+| rv_zksed    |              2 | SM4ED            |
+| rv_zksh     |              2 | SM3P0            |
+| rv_zifencei |              1 | FENCE.I          |
++-------------+----------------+------------------+
+
+Total extensions : 25
+Total entries    : 218 (instructions may be counted once per extension)
+
+============================================================
+  Instructions belonging to multiple extensions
+============================================================
+  AES64KS1I            -> rv64_zknd, rv64_zkne
+  AES64KS2             -> rv64_zknd, rv64_zkne
+  REV8                 -> rv_zbb, rv64_zbb
+  ZEXT.H               -> rv_zbb, rv64_zbb
+
+Total: 4 instruction(s) span multiple extensions.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Tier 2 — Cross-Reference with the ISA Manual
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+======================================================================
+  Tier 2 — Cross-Reference Report
+  Manual source: offline fallback list
+======================================================================
+
+✅  MATCHED (17) — present in both instr_dict.json and the ISA manual:
+    rv_a                    (canonical: a)
+    rv_d                    (canonical: d)
+    rv_f                    (canonical: f)
+    rv_i                    (canonical: i)
+    rv_m                    (canonical: m)
+    rv_v                    (canonical: v)
+    rv_zba                  (canonical: zba)
+    rv_zbb                  (canonical: zbb)
+    rv_zbc                  (canonical: zbc)
+    rv_zbs                  (canonical: zbs)
+    rv_zicsr                (canonical: zicsr)
+    rv_zifencei             (canonical: zifencei)
+    rv64_zknd               (canonical: zknd)
+    rv64_zkne               (canonical: zkne)
+    rv_zknh                 (canonical: zknh)
+    rv_zksed                (canonical: zksed)
+    rv_zksh                 (canonical: zksh)
+
+⚠️   JSON-ONLY (0) — in instr_dict.json but NOT mentioned in the manual:
+    (none)
+
+📖  MANUAL-ONLY (46) — mentioned in manual but NOT in instr_dict.json:
+    B                       (canonical: b)
+    C                       (canonical: c)
+    E                       (canonical: e)
+    H                       (canonical: h)
+    J                       (canonical: j)
+    L                       (canonical: l)
+    N                       (canonical: n)
+    P                       (canonical: p)
+    Q                       (canonical: q)
+    Smaia                   (canonical: smaia)
+    Smstateen               (canonical: smstateen)
+    Ssaia                   (canonical: ssaia)
+    Sscofpmf                (canonical: sscofpmf)
+    Ssstateen               (canonical: ssstateen)
+    Sstc                    (canonical: sstc)
+    Svinval                 (canonical: svinval)
+    Svnapot                 (canonical: svnapot)
+    Svpbmt                  (canonical: svpbmt)
+    T                       (canonical: t)
+    X                       (canonical: x)
+    Zacas                   (canonical: zacas)
+    Zawrs                   (canonical: zawrs)
+    Zbkb                    (canonical: zbkb)
+    Zbkc                    (canonical: zbkc)
+    Zbkx                    (canonical: zbkx)
+    Zca                     (canonical: zca)
+    Zcb                     (canonical: zcb)
+    Zcd                     (canonical: zcd)
+    Zcf                     (canonical: zcf)
+    Zdinx                   (canonical: zdinx)
+    Zfh                     (canonical: zfh)
+    Zfhmin                  (canonical: zfhmin)
+    Zfinx                   (canonical: zfinx)
+    Zhinx                   (canonical: zhinx)
+    Zhinxmin                (canonical: zhinxmin)
+    Zicntr                  (canonical: zicntr)
+    Zicond                  (canonical: zicond)
+    Zihintntl               (canonical: zihintntl)
+    Zihintpause             (canonical: zihintpause)
+    Zihpm                   (canonical: zihpm)
+    Zk                      (canonical: zk)
+    Zkn                     (canonical: zkn)
+    Zkr                     (canonical: zkr)
+    Zks                     (canonical: zks)
+    Zkt                     (canonical: zkt)
+    Ztso                    (canonical: ztso)
+
+----------------------------------------------------------------------
+  Summary: 17 matched, 0 in JSON only, 46 in manual only (union = 63 unique canonical names)
+----------------------------------------------------------------------
+
+  NOTE: Normalisation maps  rv_zba / rv64_zba → 'zba',  Zba → 'zba'.
+  Residual mismatches are genuine gaps between the two sources.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Tier 3 (Bonus) — Extension Sharing Graph
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+========================================================================
+  Tier 3 — Extension Sharing Graph
+========================================================================
+
+  [ Adjacency List: extensions connected by ≥1 shared instruction ]
+
+  rv64_zbb
+    └─── rv_zbb  [REV8, ZEXT.H]
+  rv64_zknd
+    └─── rv64_zkne  [AES64KS1I, AES64KS2]
+  rv64_zkne
+    └─── rv64_zknd  [AES64KS1I, AES64KS2]
+  rv_zbb
+    └─── rv64_zbb  [REV8, ZEXT.H]
+
+  [ Shared-Instruction Edge Table ]
+
+  Extension A           Extension B           Shared Instructions
+  ---------------------------------------------------------------
+  rv64_zbb              rv_zbb                REV8, ZEXT.H
+  rv64_zknd             rv64_zkne             AES64KS1I, AES64KS2
+
+  Isolated nodes (no shared instructions): rv32_zknd, rv32_zkne, rv32_zknh, rv64_a, rv64_i, rv64_m, rv64_zba, rv_a, rv_d, rv_f, rv_i, rv_m, rv_v, rv_zba, rv_zbc, rv_zbs, rv_zicsr, rv_zifencei, rv_zknh, rv_zksed, rv_zksh
+
+  [tier3] DOT graph written to: output/extension_graph.dot
+  [tier3] Mermaid diagram written to: output/extension_graph.mmd
+
+✔  Completed in 0.05s
+
